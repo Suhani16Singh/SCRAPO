@@ -18,12 +18,12 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line/60 bg-background/90 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between gap-4">
         <Logo />
-        <nav className="hidden items-center gap-6 text-sm font-semibold text-ink lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 text-sm font-semibold text-muted lg:flex" aria-label="Primary">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-olive">
+            <Link key={link.href} href={link.href} className="transition-colors hover:text-lime">
               {link.label}
             </Link>
           ))}
@@ -38,25 +38,25 @@ export function SiteHeader() {
         </div>
         <button
           type="button"
-          className="grid h-10 w-10 place-items-center rounded-full border border-line bg-card lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-card lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((value) => !value)}
         >
           <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+          <svg viewBox="0 0 24 24" className="h-5 w-5 text-ink" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
             {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
           </svg>
         </button>
       </Container>
       {open ? (
-        <div id="mobile-nav" className="border-t border-line bg-card lg:hidden">
+        <div id="mobile-nav" className="border-t border-line bg-sidebar lg:hidden">
           <Container className="flex flex-col gap-1 py-3">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-2xl px-3 py-3 text-sm font-semibold"
+                className="rounded-xl px-3 py-3 text-sm font-semibold text-muted hover:bg-card hover:text-ink"
                 onClick={() => setOpen(false)}
               >
                 {link.label}

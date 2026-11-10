@@ -32,8 +32,8 @@ export function MarketplaceView() {
   return (
     <div className="mx-auto max-w-6xl space-y-8">
       <div>
-        <p className="text-sm font-semibold text-olive">Student marketplace</p>
-        <h1 className="mt-1 text-3xl font-medium tracking-tight sm:text-4xl">Devices ready for a second desk</h1>
+        <p className="text-sm font-semibold text-lime">Student marketplace</p>
+        <h1 className="mt-1 text-3xl font-medium tracking-tight text-ink sm:text-4xl">Devices ready for a second desk</h1>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
           Refurbished stock, open assistance requests, and where each donation stands.
           {profile.role === "student" ? " You are previewing this as a student." : " Switch the demo role to Student if you want that label on the session."}
@@ -43,7 +43,7 @@ export function MarketplaceView() {
 
       <section className="space-y-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="text-xl font-medium">Available refurbished devices</h2>
+          <h2 className="text-xl font-medium text-ink">Available refurbished devices</h2>
           <label className="block w-full sm:max-w-xs">
             <span className="sr-only">Search devices</span>
             <TextInput
@@ -70,9 +70,9 @@ export function MarketplaceView() {
                     </Pill>
                     <span className="text-xs font-semibold text-muted">{categoryLabel[item.category]}</span>
                   </div>
-                  <h3 className="mt-4 text-2xl font-medium">{item.title}</h3>
+                  <h3 className="mt-4 text-2xl font-medium text-ink">{item.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted">{item.note}</p>
-                  <p className="mt-4 font-display text-2xl text-olive">
+                  <p className="mt-4 font-display text-2xl text-lime">
                     {item.studentPrice === null ? "Donation" : formatInr(item.studentPrice)}
                   </p>
                   <p className="mt-1 text-xs text-muted">{item.campus}</p>
@@ -85,7 +85,7 @@ export function MarketplaceView() {
 
       <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h2 className="text-xl font-medium">Student assistance requests</h2>
+          <h2 className="text-xl font-medium text-ink">Student assistance requests</h2>
           <ul className="mt-4 space-y-3">
             {assistanceRequests.map((request) => (
               <li key={request.id}>
@@ -94,7 +94,7 @@ export function MarketplaceView() {
                     <Pill tone={request.status === "open" ? "lime" : "paper"}>{request.status}</Pill>
                     <span className="text-xs text-muted">{categoryLabel[request.category]}</span>
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold">{request.need}</h3>
+                  <h3 className="mt-3 text-lg font-semibold text-ink">{request.need}</h3>
                   <p className="text-sm text-muted">{request.student} · {request.campus}</p>
                   <p className="mt-2 text-sm leading-6 text-muted">{request.note}</p>
                 </Card>
@@ -103,7 +103,7 @@ export function MarketplaceView() {
           </ul>
         </div>
         <Card>
-          <h2 className="text-xl font-medium">Ask for a device</h2>
+          <h2 className="text-xl font-medium text-ink">Ask for a device</h2>
           <p className="mt-2 text-sm leading-6 text-muted">
             This note stays on the page. It is not filed as a real assistance request.
           </p>
@@ -130,13 +130,13 @@ export function MarketplaceView() {
             />
           </div>
           {sent ? (
-            <p className="mt-3 text-sm font-semibold text-olive" role="status">
+            <p className="mt-3 text-sm font-semibold text-lime" role="status">
               Saved in this view only. Refreshing clears it.
             </p>
           ) : null}
           <Button
             className="mt-4"
-            variant="olive"
+            variant="lime"
             onClick={() => {
               if (requestNote.trim().length < 24) {
                 setSent(false);

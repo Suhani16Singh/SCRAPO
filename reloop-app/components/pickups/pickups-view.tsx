@@ -35,8 +35,8 @@ export function PickupsView() {
   return (
     <div className="mx-auto max-w-6xl space-y-6">
       <div>
-        <p className="text-sm font-semibold text-olive">Pickup tracking</p>
-        <h1 className="mt-1 text-3xl font-medium tracking-tight sm:text-4xl">Collections</h1>
+        <p className="text-sm font-semibold text-lime">Pickup tracking</p>
+        <h1 className="mt-1 text-3xl font-medium tracking-tight text-ink sm:text-4xl">Collections</h1>
         <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
           Follow a request from the booking to the student handoff. Listings you create here are marked as session drafts.
         </p>
@@ -48,7 +48,11 @@ export function PickupsView() {
             key={item}
             type="button"
             aria-pressed={filter === item}
-            className={filter === item ? "rounded-full bg-olive px-3 py-1.5 text-xs font-semibold text-paper" : "rounded-full border border-line bg-card px-3 py-1.5 text-xs font-semibold"}
+            className={
+              filter === item
+                ? "rounded-full bg-lime px-3 py-1.5 text-xs font-semibold text-[#080908]"
+                : "rounded-full border border-line bg-card px-3 py-1.5 text-xs font-semibold text-muted hover:border-lime/30 hover:text-ink"
+            }
             onClick={() => setFilter(item)}
           >
             {item === "all" ? "All" : item === "unassigned" ? "Unassigned" : statusLabel[item]}
@@ -73,14 +77,14 @@ export function PickupsView() {
                     </Pill>
                     <Pill tone="paper">{statusLabel[pickup.status]}</Pill>
                   </div>
-                  <h2 className="mt-3 text-xl font-medium">{pickup.deviceName}</h2>
+                  <h2 className="mt-3 text-xl font-medium text-ink">{pickup.deviceName}</h2>
                   <p className="text-sm text-muted">
                     {categoryLabel[pickup.category]} · {pickup.city}
                     {pickup.collectionDate ? ` · ${formatDate(pickup.collectionDate)}` : " · date not set"}
                   </p>
                   <p className="mt-1 text-sm text-muted">{pickup.recycler.name}</p>
                 </div>
-                <Button href={`/pickups/${pickup.id}`} variant="olive">
+                <Button href={`/pickups/${pickup.id}`} variant="lime">
                   Open timeline
                 </Button>
               </Card>

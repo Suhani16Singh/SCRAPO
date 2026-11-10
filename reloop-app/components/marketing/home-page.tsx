@@ -52,11 +52,12 @@ export function HomePage() {
     <>
       <SiteHeader />
       <main>
+        {/* Hero Section */}
         <Container className="grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
           <div>
-            <p className="text-sm font-semibold tracking-wide text-olive">Collect . Refurbish . Donate .</p>
+            <p className="text-sm font-semibold tracking-wide text-lime">Collect . Refurbish . Donate .</p>
             <h1 className="mt-4 max-w-xl text-5xl leading-[1.02] font-medium tracking-tight text-ink sm:text-6xl lg:text-7xl">
-              Give electronics <span className="font-bold">a second life.</span>
+              Give electronics <span className="font-bold text-lime">a second life.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
               Scrapo collects devices you have stopped using, gets the useful ones refurbished, and routes them to students. You earn points for keeping them out of a landfill.
@@ -75,8 +76,8 @@ export function HomePage() {
                 ["₹18.4k", "Sample value kept in use"],
                 ["Grove", "Sample eco level"],
               ].map(([value, label]) => (
-                <div key={label} className="rounded-3xl border border-line bg-card px-3 py-4">
-                  <dt className="font-display text-xl font-medium text-ink sm:text-2xl">{value}</dt>
+                <div key={label} className="rounded-[18px] border border-line bg-card px-3 py-4">
+                  <dt className="font-display text-xl font-medium text-lime sm:text-2xl">{value}</dt>
                   <dd className="mt-1 text-xs leading-5 text-muted">{label}</dd>
                 </div>
               ))}
@@ -85,13 +86,14 @@ export function HomePage() {
           <DeviceCollage />
         </Container>
 
+        {/* How it works */}
         <section id="how" className="scroll-mt-20 py-16">
           <Container>
             <SectionHeading
               eyebrow="How Scrapo works"
               title={
                 <>
-                  Five steps from a drawer <span className="font-bold">to a desk</span>
+                  Five steps from a drawer <span className="font-bold text-lime">to a desk</span>
                 </>
               }
               text="The same path a donor, a recycler, and a student share. Pickup tracking and rewards sit on top of it."
@@ -100,7 +102,7 @@ export function HomePage() {
               {steps.map((step) => (
                 <li key={step.n}>
                   <Card className="h-full">
-                    <span className="font-display text-sm font-medium text-olive">{step.n}</span>
+                    <span className="font-display text-sm font-medium text-lime">{step.n}</span>
                     <h3 className="mt-4 text-lg font-medium text-ink">{step.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-muted">{step.text}</p>
                   </Card>
@@ -110,41 +112,45 @@ export function HomePage() {
           </Container>
         </section>
 
-        <section id="impact" className="scroll-mt-20 bg-olive py-16 text-paper">
+        {/* Impact Section - neon lime hero */}
+        <section id="impact" className="scroll-mt-20 py-16">
           <Container>
-            <p className="text-sm font-semibold tracking-wide text-lime">Why it matters</p>
-            <h2 className="mt-3 max-w-3xl text-3xl font-medium tracking-tight sm:text-4xl">
-              Most electronics are retired long before they are <span className="font-bold">actually finished</span>
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-6 text-paper/80">
-              These figures are published context, rounded for this page. They are not Scrapo measurements.
-            </p>
-            <dl className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["62 Mt", "Global e-waste generated in 2022"],
-                ["< 25%", "Documented as formally collected"],
-                ["1 laptop", "Can carry a student through a year"],
-                ["0 drawers", "Is not a recycling plan"],
-              ].map(([value, label]) => (
-                <div key={label} className="rounded-3xl bg-olive-deep/50 p-5">
-                  <dt className="font-display text-4xl font-medium text-lime">{value}</dt>
-                  <dd className="mt-3 text-sm leading-6 text-paper/85">{label}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-6 text-xs leading-5 text-paper/60">
-              Global tonnage and collection share follow the Global E-waste Monitor 2024, which reports 2022 data. The laptop and drawer lines are product statements, not statistics.
-            </p>
+            <div className="rounded-[24px] bg-lime px-6 py-12 sm:px-10">
+              <p className="text-sm font-semibold tracking-wide text-[#080908]/60">Why it matters</p>
+              <h2 className="mt-3 max-w-3xl text-3xl font-medium tracking-tight text-[#080908] sm:text-4xl">
+                Most electronics are retired long before they are <span className="font-bold">actually finished</span>
+              </h2>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-[#080908]/70">
+                These figures are published context, rounded for this page. They are not Scrapo measurements.
+              </p>
+              <dl className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  ["62 Mt", "Global e-waste generated in 2022"],
+                  ["< 25%", "Documented as formally collected"],
+                  ["1 laptop", "Can carry a student through a year"],
+                  ["0 drawers", "Is not a recycling plan"],
+                ].map(([value, label]) => (
+                  <div key={label} className="rounded-[18px] bg-[#080908]/10 p-5">
+                    <dt className="font-display text-4xl font-medium text-[#080908]">{value}</dt>
+                    <dd className="mt-3 text-sm leading-6 text-[#080908]/70">{label}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 text-xs leading-5 text-[#080908]/50">
+                Global tonnage and collection share follow the Global E-waste Monitor 2024, which reports 2022 data. The laptop and drawer lines are product statements, not statistics.
+              </p>
+            </div>
           </Container>
         </section>
 
+        {/* Device donation */}
         <section id="donate" className="scroll-mt-20 py-16">
           <Container className="grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <SectionHeading
               eyebrow="Device donation"
               title={
                 <>
-                  Hand it over while it can still <span className="font-bold">be useful</span>
+                  Hand it over while it can still <span className="font-bold text-lime">be useful</span>
                 </>
               }
               text="Phones, laptops, tablets, monitors, small appliances, and accessories. You describe the condition. A recycler confirms it at pickup."
@@ -154,7 +160,7 @@ export function HomePage() {
                 <Link
                   key={key}
                   href={`/devices/new?category=${key}`}
-                  className="rounded-3xl border border-line bg-card p-5 transition hover:-translate-y-0.5 hover:border-olive"
+                  className="rounded-[18px] border border-line bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-lime/40 hover:shadow-[0_0_20px_rgba(212,255,36,0.05)]"
                 >
                   <p className="font-display text-lg font-medium text-ink">{categoryLabel[key]}</p>
                   <p className="mt-1 text-sm text-muted">{line}</p>
@@ -164,13 +170,14 @@ export function HomePage() {
           </Container>
         </section>
 
+        {/* Student section */}
         <section id="students" className="scroll-mt-20 py-4 pb-16">
           <Container>
             <SectionHeading
               eyebrow="Student donation"
               title={
                 <>
-                  Refurbished devices, <span className="font-bold">requested by name</span>
+                  Refurbished devices, <span className="font-bold text-lime">requested by name</span>
                 </>
               }
               text="Students ask for what they actually need. A listing can be a gift, a low student price, or already handed over."
@@ -184,7 +191,7 @@ export function HomePage() {
                   </div>
                   <h3 className="mt-4 text-xl font-medium text-ink">{item.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-muted">{item.note}</p>
-                  <p className="mt-4 font-display text-lg text-olive">
+                  <p className="mt-4 font-display text-lg text-lime">
                     {item.studentPrice === null ? "Donation" : formatInr(item.studentPrice)}
                   </p>
                   <p className="mt-1 text-xs text-muted">{item.campus}</p>
@@ -192,20 +199,21 @@ export function HomePage() {
               ))}
             </div>
             <div className="mt-6">
-              <Button href="/marketplace" variant="olive">
+              <Button href="/marketplace" variant="lime">
                 Open the student marketplace
               </Button>
             </div>
           </Container>
         </section>
 
+        {/* Rewards section */}
         <section id="rewards" className="scroll-mt-20 py-16">
           <Container>
             <SectionHeading
               eyebrow="Scrapo Rewards"
               title={
                 <>
-                  A monthly board for people who <span className="font-bold">keep going</span>
+                  A monthly board for people who <span className="font-bold text-lime">keep going</span>
                 </>
               }
               text="Points come from listings, completed pickups, and donations. Eco levels mark lifetime progress. The board below is a sample for October 2026."
@@ -216,12 +224,12 @@ export function HomePage() {
                   key={entry.rank}
                   className={entry.rank === 1 ? "bg-lime md:-translate-y-4" : ""}
                 >
-                  <p className="text-sm font-semibold text-olive">#{entry.rank}</p>
-                  <h3 className="mt-3 text-2xl font-medium text-ink">{entry.name}</h3>
-                  <p className="mt-1 text-sm text-muted">{entry.city}</p>
-                  <p className="mt-4 font-display text-3xl font-medium text-ink">
+                  <p className={cx("text-sm font-semibold", entry.rank === 1 ? "text-[#080908]/60" : "text-lime")}>#{entry.rank}</p>
+                  <h3 className={cx("mt-3 text-2xl font-medium", entry.rank === 1 ? "text-[#080908]" : "text-ink")}>{entry.name}</h3>
+                  <p className={cx("mt-1 text-sm", entry.rank === 1 ? "text-[#080908]/60" : "text-muted")}>{entry.city}</p>
+                  <p className={cx("mt-4 font-display text-3xl font-medium", entry.rank === 1 ? "text-[#080908]" : "text-ink")}>
                     {formatNumber(entry.points)}
-                    <span className="ml-2 text-sm font-sans font-semibold text-muted">pts</span>
+                    <span className={cx("ml-2 text-sm font-sans font-semibold", entry.rank === 1 ? "text-[#080908]/60" : "text-muted")}>pts</span>
                   </p>
                 </Card>
               ))}
@@ -239,21 +247,22 @@ export function HomePage() {
           </Container>
         </section>
 
+        {/* CTA Section */}
         <section className="pb-8">
           <Container>
-            <div className="grid items-center gap-8 overflow-hidden rounded-[2rem] bg-lime px-6 py-10 sm:px-10 lg:grid-cols-[1fr_auto]">
+            <div className="grid items-center gap-8 overflow-hidden rounded-[24px] bg-lime px-6 py-10 sm:px-10 lg:grid-cols-[1fr_auto]">
               <div>
-                <h2 className="text-3xl font-medium tracking-tight text-ink sm:text-5xl">
+                <h2 className="text-3xl font-medium tracking-tight text-[#080908] sm:text-5xl">
                   Ready to make an <span className="font-bold">impact?</span>
                 </h2>
-                <p className="mt-4 max-w-xl text-base leading-7 text-olive-deep">
+                <p className="mt-4 max-w-xl text-base leading-7 text-[#080908]/70">
                   List one device. The estimate, the pickup, and the student match are all in this prototype so you can walk the whole path.
                 </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                  <Button href="/signup" variant="olive" size="lg">
+                  <Button href="/signup" variant="olive" size="lg" className="!bg-[#080908] !text-lime hover:!bg-[#171917]">
                     Create a prototype account
                   </Button>
-                  <Button href="/dashboard" variant="soft" size="lg">
+                  <Button href="/dashboard" variant="soft" size="lg" className="!bg-white/20 !text-[#080908] !border-[#080908]/20 hover:!bg-white/30">
                     Preview the dashboard
                   </Button>
                 </div>
@@ -266,4 +275,8 @@ export function HomePage() {
       <SiteFooter />
     </>
   );
+}
+
+function cx(...parts: Array<string | false | null | undefined>) {
+  return parts.filter(Boolean).join(" ");
 }

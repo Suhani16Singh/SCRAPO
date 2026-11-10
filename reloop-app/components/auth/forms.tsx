@@ -45,7 +45,7 @@ export function LoginForm() {
 
   return (
     <div>
-      <h1 className="text-4xl font-medium tracking-tight">Log in</h1>
+      <h1 className="text-4xl font-medium tracking-tight text-ink">Log in</h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         This form does not contact a server. Pick a role to open the matching prototype desk.
       </p>
@@ -71,7 +71,7 @@ export function LoginForm() {
             />
             <button
               type="button"
-              className="absolute top-1/2 right-3 -translate-y-1/2 text-xs font-semibold text-olive"
+              className="absolute top-1/2 right-3 -translate-y-1/2 text-xs font-semibold text-lime hover:text-lime-deep"
               onClick={() => setShow((value) => !value)}
             >
               {show ? "Hide" : "Show"}
@@ -86,20 +86,20 @@ export function LoginForm() {
             <option value="admin">Admin preview</option>
           </SelectInput>
         </Field>
-        <Button type="submit" className="w-full" size="lg">
+        <Button type="submit" variant="lime" className="w-full" size="lg">
           Continue
         </Button>
       </form>
       <div className="mt-4 flex items-center justify-between text-sm">
-        <Link href="/forgot-password" className="font-semibold text-olive">
+        <Link href="/forgot-password" className="font-semibold text-muted hover:text-lime">
           Forgot password
         </Link>
-        <Link href="/signup" className="font-semibold text-olive">
+        <Link href="/signup" className="font-semibold text-lime hover:text-lime-deep">
           Create an account
         </Link>
       </div>
-      <div className="mt-8 rounded-3xl border border-line bg-card p-4">
-        <p className="text-sm font-semibold">Sample profiles</p>
+      <div className="mt-8 rounded-[18px] border border-line bg-card p-4">
+        <p className="text-sm font-semibold text-ink">Sample profiles</p>
         <div className="mt-3 grid gap-2">
           <Button variant="ghost" onClick={() => enterDemo("donor", "Ananya Iyer", "ananya.iyer@example.com")}>
             Continue as Ananya, donor
@@ -143,7 +143,7 @@ export function SignupForm() {
 
   return (
     <div>
-      <h1 className="text-4xl font-medium tracking-tight">Create an account</h1>
+      <h1 className="text-4xl font-medium tracking-tight text-ink">Create an account</h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         Admin access is a preview on the login screen. Recycler accounts in the real product would wait for license review.
       </p>
@@ -176,13 +176,13 @@ export function SignupForm() {
             <option value="recycler">A recycler</option>
           </SelectInput>
         </Field>
-        <Button type="submit" className="w-full" size="lg">
+        <Button type="submit" variant="lime" className="w-full" size="lg">
           Continue to verification
         </Button>
       </form>
       <p className="mt-4 text-sm text-muted">
         Already have a prototype session?{" "}
-        <Link href="/login" className="font-semibold text-olive">
+        <Link href="/login" className="font-semibold text-lime hover:text-lime-deep">
           Log in
         </Link>
       </p>
@@ -208,11 +208,11 @@ export function ForgotPasswordForm() {
   if (sent) {
     return (
       <div>
-        <h1 className="text-4xl font-medium tracking-tight">Check your inbox</h1>
+        <h1 className="text-4xl font-medium tracking-tight text-ink">Check your inbox</h1>
         <p className="mt-3 text-sm leading-6 text-muted">
-          In the live product, a reset link would go to <span className="font-semibold text-ink">{email}</span>. This prototype does not send email.
+          In the live product, a reset link would go to <span className="font-semibold text-lime">{email}</span>. This prototype does not send email.
         </p>
-        <Button href="/login" className="mt-8" variant="olive">
+        <Button href="/login" className="mt-8" variant="lime">
           Back to log in
         </Button>
       </div>
@@ -221,7 +221,7 @@ export function ForgotPasswordForm() {
 
   return (
     <div>
-      <h1 className="text-4xl font-medium tracking-tight">Forgot password</h1>
+      <h1 className="text-4xl font-medium tracking-tight text-ink">Forgot password</h1>
       <p className="mt-3 text-sm leading-6 text-muted">
         Tell us which email to use. No message leaves this browser.
       </p>
@@ -235,11 +235,11 @@ export function ForgotPasswordForm() {
             onChange={(event) => setEmail(event.target.value)}
           />
         </Field>
-        <Button type="submit" className="w-full" size="lg">
+        <Button type="submit" variant="lime" className="w-full" size="lg">
           Show the sent state
         </Button>
       </form>
-      <Link href="/login" className="mt-4 inline-block text-sm font-semibold text-olive">
+      <Link href="/login" className="mt-4 inline-block text-sm font-semibold text-lime hover:text-lime-deep">
         Back to log in
       </Link>
     </div>

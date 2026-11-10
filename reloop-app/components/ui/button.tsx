@@ -3,11 +3,11 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cx } from "@/lib/cx";
 
 const variants = {
-  lime: "bg-lime text-ink hover:bg-lime-deep",
-  olive: "bg-olive text-paper hover:bg-olive-deep",
-  ghost: "border border-olive/25 bg-card text-ink hover:border-olive hover:bg-white",
-  soft: "bg-white text-ink hover:bg-paper",
-  danger: "bg-danger text-white hover:bg-olive-deep",
+  lime: "bg-lime text-[#080908] hover:bg-lime-deep hover:shadow-[0_0_20px_rgba(212,255,36,0.3)]",
+  olive: "bg-lime text-[#080908] hover:bg-lime-deep hover:shadow-[0_0_20px_rgba(212,255,36,0.3)]",
+  ghost: "border border-line bg-card text-ink hover:border-lime/40 hover:bg-card-secondary",
+  soft: "bg-card-secondary text-ink hover:bg-card border border-line",
+  danger: "bg-danger/10 text-danger border border-danger/20 hover:bg-danger/20",
 } as const;
 
 const sizes = {
@@ -22,7 +22,7 @@ export function buttonClass(
   className?: string,
 ) {
   return cx(
-    "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition disabled:cursor-not-allowed disabled:opacity-50",
+    "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50",
     variants[variant],
     sizes[size],
     className,

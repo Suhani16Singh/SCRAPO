@@ -1,24 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f3f6d8;
-  --foreground: #1c1e14;
-  --card: #fffef6;
-  --lime: #dde671;
-  --lime-deep: #c9d44a;
-  --olive: #61671b;
-  --olive-deep: #3e4212;
-  --ink: #1a1c12;
-  --muted: #4e5338;
-  --line: #d4dcb0;
-  --danger: #8e3328;
-  --paper: #f7f8e6;
+  --background: #080908;
+  --foreground: #F5F5F2;
+  --card: #171917;
+  --card-secondary: #1D201C;
+  --sidebar: #0C0D0C;
+  --lime: #D4FF24;
+  --lime-deep: #A8D929;
+  --olive: #D4FF24;
+  --olive-deep: #A8D929;
+  --ink: #F5F5F2;
+  --muted: #92958E;
+  --line: #292C27;
+  --danger: #F16D6D;
+  --paper: #1D201C;
+  --success: #36D399;
+  --warning: #F5B942;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-card-secondary: var(--card-secondary);
+  --color-sidebar: var(--sidebar);
   --color-lime: var(--lime);
   --color-lime-deep: var(--lime-deep);
   --color-olive: var(--olive);
@@ -28,15 +34,14 @@
   --color-line: var(--line);
   --color-danger: var(--danger);
   --color-paper: var(--paper);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --font-sans: var(--font-manrope);
   --font-display: var(--font-unbounded);
 }
 
 body {
-  background:
-    radial-gradient(900px 420px at 110% -10%, rgb(221 230 113 / 0.9), transparent 58%),
-    radial-gradient(640px 360px at -10% 8%, rgb(97 103 27 / 0.08), transparent 60%),
-    var(--background);
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-manrope), sans-serif;
 }
@@ -48,13 +53,67 @@ h3 {
 }
 
 ::selection {
-  background: #dde671;
-  color: #1a1c12;
+  background: #D4FF24;
+  color: #080908;
 }
 
 :focus-visible {
-  outline: 2px solid #3e4212;
+  outline: 2px solid #D4FF24;
   outline-offset: 3px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0D0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #292C27;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3d36;
+}
+
+/* Range slider dark styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #292C27;
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #D4FF24;
+  cursor: pointer;
+  border: 2px solid #080908;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #D4FF24;
+  cursor: pointer;
+  border: 2px solid #080908;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+  accent-color: #D4FF24;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -75,4 +134,9 @@ h3 {
   50% {
     transform: translateY(-10px);
   }
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, select, textarea {
+  transition: all 0.2s ease;
 }

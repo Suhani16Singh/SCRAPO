@@ -172,8 +172,8 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
     <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[1.2fr_0.8fr]">
       <div className="space-y-6">
         <div>
-          <p className="text-sm font-semibold text-olive">Device listing</p>
-          <h1 className="mt-1 text-3xl font-medium tracking-tight sm:text-4xl">Tell us about the device</h1>
+          <p className="text-sm font-semibold text-lime">Device listing</p>
+          <h1 className="mt-1 text-3xl font-medium tracking-tight text-ink sm:text-4xl">Tell us about the device</h1>
           <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
             Photos stay in this browser session. The estimate is a formula on the page, not an appraisal.
           </p>
@@ -181,7 +181,7 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
         <DemoBanner />
 
         <Card>
-          <h2 className="text-lg font-medium" id="category-field" tabIndex={-1}>Category</h2>
+          <h2 className="text-lg font-medium text-ink" id="category-field" tabIndex={-1}>Category</h2>
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3" role="group" aria-label="Category">
             {categories.map((item) => (
               <button
@@ -190,8 +190,8 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
                 aria-pressed={category === item}
                 className={
                   category === item
-                    ? "rounded-2xl bg-lime px-3 py-4 text-left text-sm font-semibold text-ink"
-                    : "rounded-2xl border border-line bg-white px-3 py-4 text-left text-sm font-semibold"
+                    ? "rounded-xl bg-lime px-3 py-4 text-left text-sm font-semibold text-[#080908]"
+                    : "rounded-xl border border-line bg-card-secondary px-3 py-4 text-left text-sm font-semibold text-ink hover:border-lime/30"
                 }
                 onClick={() => setCategory(item)}
               >
@@ -215,9 +215,9 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
             <TextInput id="model" value={model} onChange={(event) => setModel(event.target.value)} placeholder="Latitude 5420" />
           </Field>
           <div className="sm:col-span-2">
-            <label htmlFor="age" className="mb-2 flex items-center justify-between text-sm font-semibold">
+            <label htmlFor="age" className="mb-2 flex items-center justify-between text-sm font-semibold text-ink">
               Device age
-              <span className="font-display text-olive">{ageYears === 0 ? "Under a year" : `${ageYears} years`}</span>
+              <span className="font-display text-lime">{ageYears === 0 ? "Under a year" : `${ageYears} years`}</span>
             </label>
             <input
               id="age"
@@ -226,20 +226,20 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
               max={12}
               value={ageYears}
               onChange={(event) => setAgeYears(Number(event.target.value))}
-              className="w-full accent-olive"
+              className="w-full"
             />
           </div>
         </Card>
 
         <Card>
-          <h2 className="text-lg font-medium" id="condition-field" tabIndex={-1}>Condition</h2>
+          <h2 className="text-lg font-medium text-ink" id="condition-field" tabIndex={-1}>Condition</h2>
           <div className="mt-4 grid grid-cols-2 gap-2" role="group" aria-label="Condition">
             {conditions.map((item) => (
               <button
                 key={item}
                 type="button"
                 aria-pressed={condition === item}
-                className={condition === item ? "rounded-2xl bg-olive px-3 py-3 text-sm font-semibold text-paper" : "rounded-2xl border border-line px-3 py-3 text-sm font-semibold"}
+                className={condition === item ? "rounded-xl bg-lime px-3 py-3 text-sm font-semibold text-[#080908]" : "rounded-xl border border-line bg-card-secondary px-3 py-3 text-sm font-semibold text-ink hover:border-lime/30"}
                 onClick={() => setCondition(item)}
               >
                 {conditionLabel[item]}
@@ -247,14 +247,14 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
             ))}
           </div>
           {errors.condition ? <p className="mt-2 text-sm text-danger" role="alert">{errors.condition}</p> : null}
-          <h2 className="mt-6 text-lg font-medium" id="working-field" tabIndex={-1}>Working status</h2>
+          <h2 className="mt-6 text-lg font-medium text-ink" id="working-field" tabIndex={-1}>Working status</h2>
           <div className="mt-4 grid gap-2 sm:grid-cols-3" role="group" aria-label="Working status">
             {workingStates.map((item) => (
               <button
                 key={item}
                 type="button"
                 aria-pressed={working === item}
-                className={working === item ? "rounded-2xl bg-lime px-3 py-3 text-sm font-semibold" : "rounded-2xl border border-line px-3 py-3 text-sm font-semibold"}
+                className={working === item ? "rounded-xl bg-lime px-3 py-3 text-sm font-semibold text-[#080908]" : "rounded-xl border border-line bg-card-secondary px-3 py-3 text-sm font-semibold text-ink hover:border-lime/30"}
                 onClick={() => setWorking(item)}
               >
                 {workingLabel[item]}
@@ -278,17 +278,17 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
         </Card>
 
         <Card>
-          <h2 className="text-lg font-medium">Photos</h2>
+          <h2 className="text-lg font-medium text-ink">Photos</h2>
           <p className="mt-1 text-sm text-muted">Up to four images. They are previewed locally and discarded when you leave.</p>
           <label
-            className="mt-4 flex cursor-pointer flex-col items-center justify-center rounded-3xl border border-dashed border-olive/40 bg-paper px-4 py-10 text-center"
+            className="mt-4 flex cursor-pointer flex-col items-center justify-center rounded-[18px] border border-dashed border-line bg-card-secondary px-4 py-10 text-center transition-colors hover:border-lime/40"
             onDragOver={(event) => event.preventDefault()}
             onDrop={(event) => {
               event.preventDefault();
               addFiles(event.dataTransfer.files);
             }}
           >
-            <span className="text-sm font-semibold">Choose images or drop them here</span>
+            <span className="text-sm font-semibold text-ink">Choose images or drop them here</span>
             <span className="mt-1 text-xs text-muted">JPG, PNG, or WebP · under 5 MB</span>
             <input
               type="file"
@@ -305,9 +305,9 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
           {photos.length ? (
             <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {photos.map((photo) => (
-                <li key={photo.url} className="overflow-hidden rounded-2xl border border-line">
+                <li key={photo.url} className="overflow-hidden rounded-xl border border-line">
                   <Image src={photo.url} alt={`${photo.name} preview`} width={320} height={224} unoptimized className="h-28 w-full object-cover" />
-                  <button type="button" className="w-full px-2 py-2 text-xs font-semibold" onClick={() => removePhoto(photo.url)}>
+                  <button type="button" className="w-full px-2 py-2 text-xs font-semibold text-muted hover:text-ink" onClick={() => removePhoto(photo.url)}>
                     Remove {photo.name}
                   </button>
                 </li>
@@ -325,17 +325,17 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
 
       <aside className="lg:sticky lg:top-24 lg:self-start">
         <Card className={showEstimate ? "bg-lime" : ""}>
-          <p className="text-sm font-semibold text-olive">Valuation</p>
+          <p className={showEstimate ? "text-sm font-semibold text-[#080908]/60" : "text-sm font-semibold text-lime"}>Valuation</p>
           <ul className="mt-4 space-y-2">
             {steps.map((step) => (
               <li key={step.label} className="flex items-center gap-2 text-sm">
                 <span
-                  className={step.done ? "grid h-5 w-5 place-items-center rounded-full bg-olive text-[11px] text-paper" : "grid h-5 w-5 place-items-center rounded-full border border-line text-[11px] text-muted"}
+                  className={step.done ? "grid h-5 w-5 place-items-center rounded-full bg-lime text-[11px] text-[#080908]" : "grid h-5 w-5 place-items-center rounded-full border border-line text-[11px] text-muted"}
                   aria-hidden
                 >
                   {step.done ? "✓" : ""}
                 </span>
-                <button type="button" className="text-left font-semibold" onClick={() => document.getElementById(step.id)?.focus()}>
+                <button type="button" className={`text-left font-semibold ${showEstimate ? "text-[#080908]" : "text-ink"}`} onClick={() => document.getElementById(step.id)?.focus()}>
                   {step.label}
                 </button>
               </li>
@@ -343,22 +343,22 @@ export function ListingView({ initialCategory }: { initialCategory?: Category })
           </ul>
           {showEstimate && estimate ? (
             <>
-              <p className="mt-3 font-display text-4xl font-medium text-ink">{formatInr(estimate.value)}</p>
-              <p className="mt-1 text-sm text-olive-deep">{formatNumber(estimate.points)} prototype points</p>
+              <p className="mt-3 font-display text-4xl font-medium text-[#080908]">{formatInr(estimate.value)}</p>
+              <p className="mt-1 text-sm text-[#080908]/70">{formatNumber(estimate.points)} prototype points</p>
               <Pill tone="olive">{estimate.reuse}</Pill>
-              <p className="mt-4 text-sm leading-6 text-olive-deep">{description.trim()}</p>
+              <p className="mt-4 text-sm leading-6 text-[#080908]/70">{description.trim()}</p>
               <ul className="mt-4 space-y-3">
                 {estimate.lines.map((line) => (
                   <li key={line.label}>
-                    <p className="text-sm font-semibold">{line.label}</p>
-                    <p className="text-sm text-olive-deep">{line.detail}</p>
+                    <p className="text-sm font-semibold text-[#080908]">{line.label}</p>
+                    <p className="text-sm text-[#080908]/70">{line.detail}</p>
                   </li>
                 ))}
               </ul>
-              <Button className="mt-6 w-full" variant="olive" onClick={requestPickup}>
+              <Button className="mt-6 w-full !bg-[#080908] !text-lime hover:!bg-[#171917]" variant="olive" onClick={requestPickup}>
                 Request a pickup
               </Button>
-              <p className="mt-3 text-xs leading-5 text-olive-deep">
+              <p className="mt-3 text-xs leading-5 text-[#080908]/60">
                 The request is saved in this browser and opens a tracking page. It is not sent to a recycler.
               </p>
             </>

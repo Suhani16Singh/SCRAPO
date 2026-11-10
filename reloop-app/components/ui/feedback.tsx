@@ -10,10 +10,10 @@ export function Pill({
   tone?: "lime" | "olive" | "paper" | "danger";
 }) {
   const tones = {
-    lime: "bg-lime text-ink",
-    olive: "bg-olive text-paper",
-    paper: "bg-paper text-olive",
-    danger: "bg-danger/10 text-danger",
+    lime: "bg-lime/15 text-lime border border-lime/20",
+    olive: "bg-lime text-[#080908]",
+    paper: "bg-card-secondary text-muted border border-line",
+    danger: "bg-danger/10 text-danger border border-danger/20",
   };
   return (
     <span
@@ -29,7 +29,7 @@ export function Pill({
 
 export function DemoBanner({ children }: { children?: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-olive/15 bg-olive px-4 py-3 text-sm leading-6 text-paper">
+    <div className="rounded-[18px] border border-lime/15 bg-lime/5 px-4 py-3 text-sm leading-6 text-ink">
       <span className="font-semibold text-lime">Demo data.</span>{" "}
       {children ??
         "Names, points, prices, and pickups on this screen are prototype samples stored in this browser. They are not live records."}
@@ -41,14 +41,14 @@ export function PageSkeleton({ cards = 4 }: { cards?: number }) {
   return (
     <div className="space-y-4" aria-busy="true" aria-live="polite">
       <span className="sr-only">Loading demo data</span>
-      <div className="h-8 w-56 animate-pulse rounded-full bg-olive/10" />
-      <div className="h-16 animate-pulse rounded-2xl bg-olive/15" />
+      <div className="h-8 w-56 animate-pulse rounded-full bg-line/40" />
+      <div className="h-16 animate-pulse rounded-[18px] bg-line/30" />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {Array.from({ length: cards }, (_, index) => (
-          <div key={index} className="h-28 animate-pulse rounded-3xl bg-white/80" />
+          <div key={index} className="h-28 animate-pulse rounded-[18px] bg-card" />
         ))}
       </div>
-      <div className="h-72 animate-pulse rounded-3xl bg-white/80" />
+      <div className="h-72 animate-pulse rounded-[18px] bg-card" />
     </div>
   );
 }
@@ -63,8 +63,8 @@ export function EmptyState({
   action?: ReactNode;
 }) {
   return (
-    <div className="rounded-3xl border border-dashed border-olive/30 bg-white/60 px-6 py-12 text-center">
-      <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-lime text-olive">
+    <div className="rounded-[18px] border border-dashed border-line bg-card px-6 py-12 text-center">
+      <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-lime/10 text-lime">
         <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
           <circle cx="11" cy="11" r="6" />
           <path d="M16 16l4 4" strokeLinecap="round" />
@@ -87,7 +87,7 @@ export function ErrorState({
   onRetry?: () => void;
 }) {
   return (
-    <div className="rounded-3xl border border-danger/20 bg-white px-6 py-12 text-center" role="alert">
+    <div className="rounded-[18px] border border-danger/20 bg-card px-6 py-12 text-center" role="alert">
       <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-danger/10 text-danger">
         <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
           <path d="M12 8v5" strokeLinecap="round" />
@@ -98,7 +98,7 @@ export function ErrorState({
       <h2 className="text-xl font-medium text-ink">{title}</h2>
       <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted">{text}</p>
       {onRetry ? (
-        <Button className="mt-5" variant="olive" onClick={onRetry}>
+        <Button className="mt-5" variant="lime" onClick={onRetry}>
           Try again
         </Button>
       ) : null}

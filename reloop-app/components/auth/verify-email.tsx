@@ -29,7 +29,7 @@ export function VerifyEmail({
   name: string;
   email: string;
   role: string;
-}) {
+  }) {
   const router = useRouter();
   const { signIn } = usePrototype();
   const safeRole: Role = isRole(role) ? role : "donor";
@@ -59,8 +59,8 @@ export function VerifyEmail({
               aria-selected={active}
               className={
                 active
-                  ? "rounded-full bg-olive px-3 py-1.5 text-xs font-semibold text-paper"
-                  : "rounded-full border border-line bg-card px-3 py-1.5 text-xs font-semibold text-ink"
+                  ? "rounded-full bg-lime px-3 py-1.5 text-xs font-semibold text-[#080908]"
+                  : "rounded-full border border-line bg-card px-3 py-1.5 text-xs font-semibold text-muted hover:border-lime/30 hover:text-ink"
               }
             >
               {item.label}
@@ -71,11 +71,11 @@ export function VerifyEmail({
 
       {status === "sent" ? (
         <>
-          <h1 className="text-4xl font-medium tracking-tight">Verify your email</h1>
+          <h1 className="text-4xl font-medium tracking-tight text-ink">Verify your email</h1>
           <p className="mt-3 text-sm leading-6 text-muted">
-            A live app would email {email || "you"} a link. Here, the message never leaves the browser. Open the other states to see what happens next.
+            A live app would email <span className="text-lime">{email || "you"}</span> a link. Here, the message never leaves the browser. Open the other states to see what happens next.
           </p>
-          <Button className="mt-8" onClick={() => {
+          <Button className="mt-8" variant="lime" onClick={() => {
             const params = new URLSearchParams(query);
             params.set("status", "verified");
             router.push(`/verify-email?${params.toString()}`);
@@ -87,11 +87,11 @@ export function VerifyEmail({
 
       {status === "verified" ? (
         <>
-          <h1 className="text-4xl font-medium tracking-tight">Email verified</h1>
+          <h1 className="text-4xl font-medium tracking-tight text-ink">Email verified</h1>
           <p className="mt-3 text-sm leading-6 text-muted">
-            {name || "Your account"} can open the {safeRole} prototype. Points and pickups will still be the shared demo set.
+            {name || "Your account"} can open the <span className="text-lime">{safeRole}</span> prototype. Points and pickups will still be the shared demo set.
           </p>
-          <Button className="mt-8" onClick={finish}>
+          <Button className="mt-8" variant="lime" onClick={finish}>
             Enter Scrapo
           </Button>
         </>
@@ -99,12 +99,13 @@ export function VerifyEmail({
 
       {status === "expired" ? (
         <>
-          <h1 className="text-4xl font-medium tracking-tight">This link expired</h1>
+          <h1 className="text-4xl font-medium tracking-tight text-ink">This link expired</h1>
           <p className="mt-3 text-sm leading-6 text-muted">
             The preview link is older than the window a live email would allow. Send yourself back to the fresh state, or start again.
           </p>
           <div className="mt-8 flex flex-col gap-3">
             <Button
+              variant="lime"
               onClick={() => {
                 const params = new URLSearchParams(query);
                 params.set("status", "sent");

@@ -1,6 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="10" fill="#61671B"/>
-  <circle cx="16" cy="16" r="8" fill="#DDE671"/>
-  <path d="M16 11.2a4.8 4.8 0 1 0 3.2 8.3" stroke="#61671B" stroke-width="1.7" stroke-linecap="round"/>
-  <path d="M19.2 10.6v4.2h-4" stroke="#61671B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="14" fill="#080908"/>
+  <circle cx="24" cy="24" r="22" stroke="#292C27" stroke-width="1"/>
+  <!-- Glowing circular arrows -->
+  <defs>
+    <linearGradient id="limeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4FF24"/>
+      <stop offset="100%" stop-color="#A8D929"/>
+    </linearGradient>
+  </defs>
+  <!-- Top-right arrow arc -->
+  <path d="M24 10a14 14 0 0 1 12 7" stroke="url(#limeGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M37 13l2 5-5 1" fill="none" stroke="url(#limeGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom-left arrow arc -->
+  <path d="M24 38a14 14 0 0 1-12-7" stroke="url(#limeGrad)" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M11 35l-2-5 5-1" fill="none" stroke="url(#limeGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Phone icon inside -->
+  <rect x="18" y="16" width="12" height="16" rx="2.5" stroke="#FFFFFF" stroke-width="2.2" fill="#080908"/>
+  <circle cx="24" cy="28.5" r="1" fill="#D4FF24"/>
 </svg>

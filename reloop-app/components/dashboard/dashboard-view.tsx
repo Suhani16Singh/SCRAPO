@@ -52,10 +52,10 @@ export function DashboardView({ forceError = false }: { forceError?: boolean }) 
     <div className="mx-auto max-w-6xl space-y-6">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-semibold text-olive">
+          <p className="text-sm font-semibold text-lime">
             {profile.personalized ? "Prototype session" : "Sample profile"}
           </p>
-          <h1 className="mt-1 text-3xl font-medium tracking-tight sm:text-4xl">
+          <h1 className="mt-1 text-3xl font-medium tracking-tight text-ink sm:text-4xl">
             Hello, {profile.name.split(" ")[0]}
           </h1>
           <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
@@ -76,11 +76,12 @@ export function DashboardView({ forceError = false }: { forceError?: boolean }) 
         </Link>
       </DemoBanner>
 
+      {/* Hero stats card - inspired by reference */}
       <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Summary">
         {stats.map((stat) => (
           <Card key={stat.label}>
             <p className="text-sm font-semibold text-muted">{stat.label}</p>
-            <p className="mt-2 font-display text-3xl font-medium text-ink">{stat.value}</p>
+            <p className="mt-2 font-display text-3xl font-medium text-lime">{stat.value}</p>
             <p className="mt-2 text-xs leading-5 text-muted">{stat.hint}</p>
           </Card>
         ))}
@@ -88,7 +89,7 @@ export function DashboardView({ forceError = false }: { forceError?: boolean }) 
 
       <section>
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-xl font-medium">Recent activity</h2>
+          <h2 className="text-xl font-medium text-ink">Recent activity</h2>
           <div className="flex flex-wrap gap-2" role="group" aria-label="Filter activity">
             {filters.map((item) => (
               <button
@@ -97,8 +98,8 @@ export function DashboardView({ forceError = false }: { forceError?: boolean }) 
                 aria-pressed={filter === item.id}
                 className={
                   filter === item.id
-                    ? "rounded-full bg-olive px-3 py-1.5 text-xs font-semibold text-paper"
-                    : "rounded-full border border-line bg-card px-3 py-1.5 text-xs font-semibold"
+                    ? "rounded-full bg-lime px-3 py-1.5 text-xs font-semibold text-[#080908]"
+                    : "rounded-full border border-line bg-card px-3 py-1.5 text-xs font-semibold text-muted hover:border-lime/30 hover:text-ink"
                 }
                 onClick={() => setFilter(item.id)}
               >

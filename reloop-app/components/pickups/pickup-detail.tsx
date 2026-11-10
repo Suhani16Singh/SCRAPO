@@ -31,8 +31,8 @@ export function PickupDetail({ id }: { id: string }) {
     <div className="mx-auto max-w-6xl space-y-6">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <p className="text-sm font-semibold text-olive">Pickup {pickup.id}</p>
-          <h1 className="mt-1 text-3xl font-medium tracking-tight sm:text-4xl">{pickup.deviceName}</h1>
+          <p className="text-sm font-semibold text-lime">Pickup {pickup.id}</p>
+          <h1 className="mt-1 text-3xl font-medium tracking-tight text-ink sm:text-4xl">{pickup.deviceName}</h1>
           <p className="mt-2 text-sm text-muted">{pickup.address}, {pickup.city}</p>
         </div>
         <Button href="/pickups" variant="ghost">All pickups</Button>
@@ -44,54 +44,54 @@ export function PickupDetail({ id }: { id: string }) {
       </DemoBanner>
       <div className="grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
         <Card>
-          <h2 className="text-lg font-medium">Collection</h2>
+          <h2 className="text-lg font-medium text-ink">Collection</h2>
           <dl className="mt-4 space-y-3 text-sm">
             <div>
-              <dt className="font-semibold">Date</dt>
+              <dt className="font-semibold text-ink">Date</dt>
               <dd className="text-muted">{pickup.collectionDate ? formatDate(pickup.collectionDate) : "Not booked yet"}</dd>
             </div>
             <div>
-              <dt className="font-semibold">Status</dt>
+              <dt className="font-semibold text-ink">Status</dt>
               <dd className="mt-1"><Pill>{statusLabel[pickup.status]}</Pill></dd>
             </div>
             <div>
-              <dt className="font-semibold">Description</dt>
+              <dt className="font-semibold text-ink">Description</dt>
               <dd className="mt-1 leading-6 text-muted">
                 {pickup.description?.trim() || "No description was saved with this request."}
               </dd>
             </div>
           </dl>
-          <h2 className="mt-6 text-lg font-medium">Recycler</h2>
+          <h2 className="mt-6 text-lg font-medium text-ink">Recycler</h2>
           <dl className="mt-4 space-y-3 text-sm">
             <div>
-              <dt className="font-semibold">{pickup.recycler.name}</dt>
+              <dt className="font-semibold text-ink">{pickup.recycler.name}</dt>
               <dd className="text-muted">{pickup.recycler.contact}</dd>
             </div>
             <div>
-              <dt className="font-semibold">Phone</dt>
+              <dt className="font-semibold text-ink">Phone</dt>
               <dd className="text-muted">{pickup.recycler.phone}</dd>
             </div>
             <div>
-              <dt className="font-semibold">License</dt>
+              <dt className="font-semibold text-ink">License</dt>
               <dd className="text-muted">{pickup.recycler.license}</dd>
             </div>
           </dl>
         </Card>
         <Card>
-          <h2 className="text-lg font-medium">Status timeline</h2>
+          <h2 className="text-lg font-medium text-ink">Status timeline</h2>
           <ol className="mt-6 space-y-0">
             {pickup.timeline.map((event, index) => {
               const done = Boolean(event.at);
               return (
                 <li key={event.label} className="grid grid-cols-[1.25rem_1fr] gap-4">
                   <div className="flex flex-col items-center">
-                    <span className={cx("mt-1 h-3 w-3 rounded-full", done ? "bg-olive" : "bg-line")} />
+                    <span className={cx("mt-1 h-3 w-3 rounded-full", done ? "bg-lime ring-4 ring-lime/20" : "bg-line")} />
                     {index < pickup.timeline.length - 1 ? <span className="w-px flex-1 bg-line" /> : null}
                   </div>
                   <div className="pb-6">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="text-base font-semibold">{event.label}</h3>
-                      {done ? <span className="text-xs text-muted">{formatDate(event.at as string)}</span> : <span className="text-xs text-muted">Upcoming</span>}
+                      <h3 className="text-base font-semibold text-ink">{event.label}</h3>
+                      {done ? <span className="text-xs text-lime font-medium">{formatDate(event.at as string)}</span> : <span className="text-xs text-muted">Upcoming</span>}
                     </div>
                     <p className="mt-1 text-sm leading-6 text-muted">{event.note}</p>
                   </div>
